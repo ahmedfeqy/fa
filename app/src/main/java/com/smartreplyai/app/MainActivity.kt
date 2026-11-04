@@ -132,6 +132,7 @@ class MainActivity : Activity() {
     private fun generateBatch() {
         val endpointUrl = endpoint.text.toString().trim()
         val token = accessToken.text.toString().trim()
+        val postUrlValue = postUrl.text.toString().trim()
         val comments = commentsInput.text.toString()
             .lines()
             .map { it.trim() }
@@ -165,7 +166,7 @@ class MainActivity : Activity() {
                     input.put(JSONObject().put("id", (index + 1).toString()).put("text", text))
                 }
                 val payload = JSONObject()
-                    .put("post_url", postUrl.text.toString().trim())
+                    .put("post_url", postUrlValue)
                     .put("language_style", "auto")
                     .put("comments", input)
 
